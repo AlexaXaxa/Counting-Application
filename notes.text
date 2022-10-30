@@ -1,0 +1,29 @@
+click SAVE will block INCREACE and SAVE button and save the number of p
+in the document on the computer. (1/2)
+
+удерживание кнопки клавиатуры "вверх" increaces value
+удержавние кнопки "INCREACE" increaces value
+
+"clicks in minutes" fältet UPPDATE 
+
+Отображение на других устройствах. Телефоны и планшеты.
+
+-------------------------------------------------------------------------------------------
+                                             notes
+-------------------------------------------------------------------------------------------
+position: sticky; fast på slärmen
+position: relative; fast på sidan
+position: absolute; fast på sidan
+position: fixed; fast på skärmen
+
+
+    Normal flow
+        The elements that appear one below the other are described as block elements,
+        in contrast to inline elements, which appear beside one another like the individual words in a paragraph.
+    The display property
+    Flexbox
+    Grid
+    Floats
+    Positioning
+    Table layout
+    Multiple-column layout

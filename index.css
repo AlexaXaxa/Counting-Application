@@ -16,9 +16,17 @@ body {
 h1 {
   color: rgb(23, 212, 42);
   text-align: center;
+  caret-color: transparent;
   font-family: Arial;
 }
 
+p {
+  caret-color: transparent;
+}
+
+div {
+  caret-color: transparent;
+}
 
 .container {
     display: flex;
@@ -134,4 +142,9 @@ a#link {
   position: absolute;
   top: 40%;
   left: 45%;
+}
+
+#clInMin2 {
+  position: absolute;
+  top: 40%
 }
