@@ -4,18 +4,24 @@ let buttons = document.querySelectorAll("button");
 let speed = document.getElementById("clInMin")
 let speed2 = document.getElementById("clInMin2")
 queue = [];
+var N = 5;
 
 
 function increce() {
   count += 1;
   countEl.innerText = count;
 
-  const d = new Date();
+  let d = new Date();
+  
   let time = d.getTime();   //curent time at curent click
   queue.push(time);         //adds new time item to the end of an array
-  if (queue.length > 5){
+  if (queue.length > N)
+  {
       queue.shift();
-      speed.innerText = Math.round( 4000 /(queue[4] - queue[0]) * 10) / 10;}
+      speed.innerText = ( (N-1)*1000/(queue[N-1] - queue[0]) ).toFixed(2);
+      //speed2.innerText = ( (N-1)*1000*60/(queue[N-1] - queue[0]) ).toFixed(1);
+
+  }
 
     
   }
@@ -28,14 +34,16 @@ function reset() {
 }
 
 function save() {
-  download("result.txt", count);
+  let d = new Date(); 
+  filename = "result"+d.getTime()+".txt";
   document.querySelector('#save').disabled = true;
   document.querySelector('#increace').disabled = true;
+  download(filename, count);
 }
 
 function download(filename, text) {
   var pom = document.createElement('a');
-  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + "clicks count: " + encodeURIComponent(text));
   pom.setAttribute('download', filename);
 
   pom.style.display = 'none';
