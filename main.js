@@ -4,7 +4,14 @@ let buttons = document.querySelectorAll("button");
 let speed = document.getElementById("clInMin")
 let speed2 = document.getElementById("clInMin2")
 queue = [];
+queueV = [];
+
 var N = 5;
+
+let time_prev = 0;
+let Vi = 0;
+let Vavr = 0;
+let count1 = 0;
 
 
 function increce() {
@@ -19,12 +26,40 @@ function increce() {
   {
       queue.shift();
       speed.innerText = ( (N-1)*1000/(queue[N-1] - queue[0]) ).toFixed(2);
-      //speed2.innerText = ( (N-1)*1000*60/(queue[N-1] - queue[0]) ).toFixed(1);
-
   }
 
-    
+  increase2();  
+}
+
+
+
+function increase2() {
+  count1 += 1;
+
+  let d = new Date();
+  let time = d.getTime();
+  
+  if (count1 > 1 ){
+    Vi = 1/(time-time_prev);
+    time_prev = time;
   }
+ 
+  queueV.push(Vi);
+  
+  if (queueV.length > N){
+    queueV.shift();
+    Vavr = 0;
+    for(i = 0; i < N; i++){
+       Vavr += queueV[i]; 
+    }
+    Vavr/=N;
+    Vavr*=1000;
+    speed2.innerText = Vavr.toFixed(2);
+ }
+}
+
+
+
 
 function reset() {
   count = 0;
